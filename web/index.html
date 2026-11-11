@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Road Obstacle Detection</title><link rel="stylesheet" href="/style.css"><script defer src="/dashboard.js"></script></head>
+<body>
+<header><div><span class="mark" aria-hidden="true">◆</span><strong>Road Obstacle Detection</strong></div><span id="board" class="badge">Checking controller</span></header>
+<main>
+  <section class="intro"><div><p class="eyebrow">TRAFFIC MONITOR</p><h1>Road monitoring</h1></div><span id="state" class="badge">Ready</span></section>
+  <section class="metrics" aria-label="Vehicle counts">
+    <article><span>This run</span><strong id="passages">0</strong><small>Tracked passages</small></article>
+    <article><span>Lane 1 · Last 72 hours</span><strong id="lane0">0</strong><small id="slow0">0 slowdowns</small></article>
+    <article><span>Lane 2 · Last 72 hours</span><strong id="lane1">0</strong><small id="slow1">0 slowdowns</small></article>
+  </section>
+  <div class="layout">
+    <section class="card"><div class="card-head"><h2>Camera and replay</h2><button id="stop" class="quiet" disabled>Stop</button></div>
+      <div class="actions"><button data-source="camera" class="primary">Start monitoring</button><button data-source="calibrate">Mark lanes on camera</button><button data-source="auto">Auto-mark lanes</button><label class="button" for="upload">Open video</label><input type="file" id="upload" accept="video/*,.mkv,.avi" hidden></div>
+      <div class="replays"><button data-source="traffic">Highway traffic</button><button data-source="pothole">Pothole</button><button data-source="blockage">Lane blockage</button><button data-source="bump">Speed breaker</button></div>
+      <div class="viewer" id="viewer"><p id="placeholder">Select a source to see the camera and tracking views.</p><video id="video" muted playsinline controls preload="metadata" hidden aria-label="Source video playback"></video><img id="preview" alt="Source footage and vehicle tracking overlay" hidden><svg id="lane-overlay" viewBox="0 0 319 239" preserveAspectRatio="none" aria-hidden="true" hidden></svg></div>
+      <button id="overlay-toggle" class="quiet" hidden>Show tracking view</button>
+      <div id="lane-tools" class="actions" hidden><button id="freeze">Freeze view to mark lanes</button><button id="reset-lanes" disabled>Clear points</button><button id="save-lanes" class="primary" disabled>Save lanes</button></div><p id="lane-guide" class="hint" hidden></p>
+      <div class="source"><strong id="source">No source selected</strong><small id="frames"></small></div>
+      <p id="message" aria-live="polite"></p><p id="calibration" class="hint"></p>
+    </section>
+    <section class="card"><div class="card-head"><h2>Alerts and evidence</h2><label class="sound"><input type="checkbox" id="sound"> Sound</label></div>
+      <div id="events" class="events"><p class="hint">Alerts and image suggestions will appear here.</p></div>
+    </section>
+  </div>
+</main>
+<audio id="tone" src="/urgent.wav" preload="none"></audio>
+</body></html>

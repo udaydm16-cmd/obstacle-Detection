@@ -1,0 +1,15 @@
+__pycache__/
+evidence/
+two-lane-demo.avi
+firmware/*.elf
+
+data/highway-traffic.mp4
+data/vehicle-detector.onnx
+data/pothole.onnx
+data/highway-obstruction.mp4
+data/speed-breaker.mp4
+data/speed-breaker-crossing.jpg
+data/speed-bump.onnx
+data/history.sqlite3*
+data/yolop.onnx
+data/preview/
